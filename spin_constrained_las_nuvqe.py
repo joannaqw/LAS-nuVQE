@@ -97,7 +97,7 @@ def total_spin(num_spatial_orb,ansatz,params):
     S_p =  s_plus_operator(num_spatial_orb)
     S_m= s_minus_operator(num_spatial_orb)
     Sz = s_z_operator(num_spatial_orb)
-    total_S = S_p@S_m + (Sz)**2 + Sz
+    total_S = S_p@S_m + (Sz)**2 - Sz
     total_S_q = mapper.map(total_S)
     S_squared = qiskit_operator_energy(params,total_S_q,ansatz)
     return S_squared
